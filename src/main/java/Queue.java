@@ -21,12 +21,19 @@ public class Queue <E> {
     }
 
     public Object dequeue(){
+        if(head == null){
+            throw new QueueIsEmptyException("Queue is empty");
+        }
+
         Object holdTempValue =  this.head.getValue();
         this.head = head.getNextNode();
         return holdTempValue;
     }
 
     public Object peek(){
+        if(head == null){
+            throw new QueueIsEmptyException("Queue is empty");
+        }
         return this.head.getValue();
     }
 }

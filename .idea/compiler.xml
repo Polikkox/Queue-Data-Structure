@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Queue-Data-Structure" target="1.5" />
+      <module name="Queue-Data-Structure" target="8" />
       <module name="QueuePolikkox" target="1.5" />
     </bytecodeTargetLevel>
   </component>
