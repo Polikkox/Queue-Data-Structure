@@ -20,6 +20,12 @@ public class Queue <E> {
 
     }
 
+    public Object dequeue(){
+        Object holdTempValue =  this.head.getValue();
+        this.head = head.getNextNode();
+        return holdTempValue;
+    }
+
     public Object peek(){
         return this.head.getValue();
     }
