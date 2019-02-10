@@ -66,4 +66,15 @@ class QueueTest {
     public void testDequeueMethodThrowExceptionIfQueueIsEmpty(){
         assertThrows(QueueIsEmptyException.class, ()-> this.queue.dequeue());
     }
+
+    @Test
+    public void testIsEmptyMethodReturnTrue(){
+        assertTrue(this.queue.isEmpty());
+    }
+
+    @Test
+    public void testIsEmptyMethodReturnFalse(){
+        this.queue.enqueue("test");
+        assertFalse(this.queue.isEmpty());
+    }
 }
