@@ -77,4 +77,36 @@ class QueueTest {
         this.queue.enqueue("test");
         assertFalse(this.queue.isEmpty());
     }
+
+    @Test
+    public void testSizeMethodReturn1(){
+        this.queue.enqueue("test");
+
+        int expected = 1;
+
+        assertEquals(expected, this.queue.queueSize());
+    }
+
+    @Test
+    public void testSizeMethodReturn3(){
+        this.queue.enqueue("test");
+        this.queue.enqueue("test2");
+        this.queue.enqueue("test3");
+
+        int expected = 3;
+
+        assertEquals(expected, this.queue.queueSize());
+    }
+
+    @Test
+    public void testSizeMethodReturn2(){
+        this.queue.enqueue("test");
+        this.queue.enqueue("test2");
+        this.queue.enqueue("test3");
+        this.queue.dequeue();
+
+        int expected = 2;
+
+        assertEquals(expected, this.queue.queueSize());
+    }
 }
