@@ -15,42 +15,55 @@ class QueueTest {
     }
 
     @Test
-    public void testAddOneItemToQueue(){
-        String value = "test";
+    public void testPeekReturnItemInQueueAfterEnqueueElement(){
+        String expected = "test";
+        this.queue.enqueue(expected);
 
-        this.queue.enqueue(value);
-        assertEquals(value, this.queue.peek());
+        assertEquals(expected, this.queue.peek());
     }
 
     @Test
-    public void testAddThreeItemsToQueue(){
-        String value = "test";
-        String value2 = "test2";
-        String value3 = "test3";
+    public void testPeekReturnFirstItemInQueueAfterEnqueueThreeElements(){
+        String expected = "test";
+        String expected2 = "test2";
+        String expected3 = "test3";
 
-        this.queue.enqueue(value);
-        this.queue.enqueue(value2);
-        this.queue.enqueue(value3);
-        assertEquals(value, this.queue.peek());
+        this.queue.enqueue(expected);
+        this.queue.enqueue(expected2);
+        this.queue.enqueue(expected3);
+
+        assertEquals(expected, this.queue.peek());
     }
 
     @Test
     public void testDequeueOneElement(){
-        String value = "test";
-        this.queue.enqueue(value);
-        assertEquals(value, this.queue.dequeue());
+        String expected = "test";
+        this.queue.enqueue(expected);
+
+        assertEquals(expected, this.queue.dequeue());
     }
 
     @Test
     public void testDequeueThreeElement(){
-        String value = "test";
-        String value2 = "test2";
-        String value3 = "test3";
-        this.queue.enqueue(value);
-        this.queue.enqueue(value2);
-        this.queue.enqueue(value3);
-        assertEquals(value, this.queue.dequeue());
-        assertEquals(value2, this.queue.dequeue());
-        assertEquals(value3, this.queue.dequeue());
+        String expected = "test";
+        String expected2 = "test2";
+        String expected3 = "test3";
+        this.queue.enqueue(expected);
+        this.queue.enqueue(expected2);
+        this.queue.enqueue(expected3);
+
+        assertEquals(expected, this.queue.dequeue());
+        assertEquals(expected2, this.queue.dequeue());
+        assertEquals(expected3, this.queue.dequeue());
+    }
+
+    @Test
+    public void testPeekMethodThrowExceptionIfIsEmpty(){
+        assertThrows(QueueIsEmptyException.class, ()-> this.queue.peek());
+    }
+
+    @Test
+    public void testDequeueMethodThrowExceptionIfQueueIsEmpty(){
+        assertThrows(QueueIsEmptyException.class, ()-> this.queue.dequeue());
     }
 }
