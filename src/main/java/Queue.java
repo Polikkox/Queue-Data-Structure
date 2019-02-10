@@ -4,6 +4,7 @@ public class Queue <E> {
 
     private Node head;
     private Node tail;
+    private int size;
 
     @SuppressWarnings({"unchecked"})
     public void enqueue (E value){
@@ -35,5 +36,16 @@ public class Queue <E> {
             throw new QueueIsEmptyException("Queue is empty");
         }
         return this.head.getValue();
+    }
+
+//    public int queueSize(){
+//
+//    }
+
+    public boolean isEmpty(){
+        if(this.head == null){
+            return true;
+        }
+        return false;
     }
 }
