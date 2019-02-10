@@ -20,8 +20,6 @@ public class Queue <E> {
 
     }
 
-
-
     public Object peek(){
         return this.head.getValue();
     }
